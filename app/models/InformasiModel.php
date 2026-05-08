@@ -29,6 +29,30 @@ class InformasiModel
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+
+    // ==========================
+    // INFORMASI TERBARU
+    // ==========================
+    public function latest($limit = 6)
+    {
+        $stmt = $this->pdo->prepare("
+            SELECT informasi.*, kategori.nama_kategori
+
+            FROM informasi
+
+            JOIN kategori
+            ON informasi.kategori_id = kategori.id
+
+            ORDER BY informasi.id DESC
+
+            LIMIT $limit
+        ");
+
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     // ==========================
     // INSERT
     // ==========================
@@ -103,5 +127,27 @@ class InformasiModel
         ");
 
         return $stmt->execute([$id]);
+    }
+
+
+    // ==========================
+    // FIND BY SLUG
+    // ==========================
+    public function findBySlug($slug)
+    {
+        $stmt = $this->pdo->prepare("
+            SELECT informasi.*, kategori.nama_kategori
+
+            FROM informasi
+
+            JOIN kategori
+            ON informasi.kategori_id = kategori.id
+
+            WHERE informasi.slug = ?
+        ");
+
+        $stmt->execute([$slug]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }

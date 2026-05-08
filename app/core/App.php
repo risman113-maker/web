@@ -1,10 +1,12 @@
 <?php
-class App {
-    protected $controller = 'AuthController';
+class App
+{
+    protected $controller = 'HomeController';
     protected $method = 'index';
     protected $params = [];
 
-    public function __construct() {
+    public function __construct()
+    {
         $url = $this->parseURL();
 
         if (isset($url[0]) && file_exists('app/controllers/' . ucfirst($url[0]) . 'Controller.php')) {
@@ -25,9 +27,39 @@ class App {
         call_user_func_array([$this->controller, $this->method], $this->params);
     }
 
-    private function parseURL() {
+    private function parseURL()
+    {
         if (isset($_GET['url'])) {
-            return explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
+
+            $url = trim($_GET['url'], '/');
+
+            // LOGIN
+            if ($url == 'login') {
+
+                return ['auth', 'index'];
+            }
+
+            // LOGOUT
+            if ($url == 'logout') {
+
+                return ['auth', 'logout'];
+            }
+
+            // INFORMASI LIST
+            if ($url == 'informasi') {
+
+                return ['home', 'informasi'];
+            }
+
+            // DETAIL INFORMASI
+            if (preg_match('#^informasi/(.+)$#', $url, $matches)) {
+
+                return ['home', 'detail', $matches[1]];
+            }
+
+            return explode('/', filter_var($url, FILTER_SANITIZE_URL));
         }
+
+        return [];
     }
 }
