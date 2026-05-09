@@ -310,7 +310,7 @@
 
         /* SAAT SCROLL */
         .navbar-scrolled .navbar-brand {
-            color: #4f65d6 !important;
+            color: #fdfdfd !important;
         }
 
         .navbar-scrolled .nav-link {
