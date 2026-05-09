@@ -2,128 +2,152 @@
 
 class KategoriController extends Controller
 {
+    // ================= AUTH =================
     private function checkAdmin()
     {
         checkRole('admin');
     }
 
-    // ==========================
-    // INDEX
-    // ==========================
+    // ================= INDEX =================
     public function index()
     {
         $this->checkAdmin();
 
         $model = $this->model('KategoriModel');
 
+        $data['title'] = 'Kategori';
         $data['kategori'] = $model->getAll();
 
-        $this->view('kategori/index', $data);
+        $this->view('admin/kategori/index', $data);
     }
 
-    // ==========================
-    // TAMBAH
-    // ==========================
+    // ================= TAMBAH =================
     public function tambah()
     {
         $this->checkAdmin();
 
-        $this->view('kategori/tambah');
+        $data['title'] = 'Tambah Kategori';
+
+        $this->view('admin/kategori/tambah', $data);
     }
 
-    // ==========================
-    // SIMPAN
-    // ==========================
+    // ================= SIMPAN =================
     public function simpan()
     {
         $this->checkAdmin();
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // VALIDASI METHOD
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
-            $nama = trim($_POST['nama_kategori']);
-
-            if (empty($nama)) {
-
-                setFlash('danger', 'Nama kategori wajib diisi');
-
-                redirect('kategori/tambah');
-            }
-
-            $slug = strtolower(str_replace(' ', '-', $nama));
-
-            $model = $this->model('KategoriModel');
-
-            $model->insert([
-                'nama_kategori' => $nama,
-                'slug' => $slug
-            ]);
-
-            setFlash('success', 'Kategori berhasil ditambahkan');
-
-            redirect('kategori');
+            redirect('kategori/index');
         }
+
+        $nama = trim($_POST['nama_kategori'] ?? '');
+
+        // VALIDASI INPUT
+        if (empty($nama)) {
+
+            setFlash('danger', 'Nama kategori wajib diisi');
+
+            redirect('kategori/tambah');
+        }
+
+        // GENERATE SLUG
+        $slug = strtolower(str_replace(' ', '-', $nama));
+
+        $model = $this->model('KategoriModel');
+
+        // SIMPAN DATA
+        $model->insert([
+            'nama_kategori' => $nama,
+            'slug'          => $slug
+        ]);
+
+        setFlash('success', 'Kategori berhasil ditambahkan');
+
+        redirect('kategori/index');
     }
 
-    // ==========================
-    // EDIT
-    // ==========================
+    // ================= EDIT =================
     public function edit($id)
     {
         $this->checkAdmin();
 
         $model = $this->model('KategoriModel');
 
+        $data['title'] = 'Edit Kategori';
         $data['kategori'] = $model->find($id);
 
-        $this->view('kategori/edit', $data);
+        // VALIDASI DATA
+        if (!$data['kategori']) {
+
+            setFlash('danger', 'Kategori tidak ditemukan');
+
+            redirect('kategori/index');
+        }
+
+        $this->view('admin/kategori/edit', $data);
     }
 
-    // ==========================
-    // UPDATE
-    // ==========================
+    // ================= UPDATE =================
     public function update($id)
     {
         $this->checkAdmin();
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        // VALIDASI METHOD
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
-            $nama = trim($_POST['nama_kategori']);
-
-            if (empty($nama)) {
-
-                setFlash('danger', 'Nama kategori wajib diisi');
-
-                redirect('kategori/edit/' . $id);
-            }
-
-            $slug = strtolower(str_replace(' ', '-', $nama));
-
-            $model = $this->model('KategoriModel');
-
-            $model->update($id, [
-                'nama_kategori' => $nama,
-                'slug' => $slug
-            ]);
-
-            setFlash('success', 'Kategori berhasil diupdate');
-
-            redirect('kategori');
+            redirect('kategori/index');
         }
+
+        $nama = trim($_POST['nama_kategori'] ?? '');
+
+        // VALIDASI INPUT
+        if (empty($nama)) {
+
+            setFlash('danger', 'Nama kategori wajib diisi');
+
+            redirect('kategori/edit/' . $id);
+        }
+
+        // GENERATE SLUG
+        $slug = strtolower(str_replace(' ', '-', $nama));
+
+        $model = $this->model('KategoriModel');
+
+        // UPDATE DATA
+        $model->update($id, [
+            'nama_kategori' => $nama,
+            'slug'          => $slug
+        ]);
+
+        setFlash('success', 'Kategori berhasil diupdate');
+
+        redirect('kategori/index');
     }
 
-    // ==========================
-    // HAPUS
-    // ==========================
+    // ================= HAPUS =================
     public function hapus($id)
     {
         $this->checkAdmin();
 
         $model = $this->model('KategoriModel');
 
+        // CEK DATA
+        $kategori = $model->find($id);
+
+        if (!$kategori) {
+
+            setFlash('danger', 'Kategori tidak ditemukan');
+
+            redirect('kategori/index');
+        }
+
+        // HAPUS DATA
         $model->delete($id);
 
         setFlash('success', 'Kategori berhasil dihapus');
 
-        redirect('kategori');
+        redirect('kategori/index');
     }
 }

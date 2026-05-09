@@ -1,12 +1,20 @@
 <?php
 
-$title = 'Tambah Informasi';
+$title = 'Edit Informasi';
 
-require_once 'app/views/layouts/header.php';
+require_once 'app/views/admin/layouts/header.php';
 
+// VALIDASI
 if (!isset($kategori)) {
 
     $kategori = [];
+}
+
+if (empty($informasi)) {
+
+    setFlash('danger', 'Data informasi tidak ditemukan');
+
+    redirect('informasi/index');
 }
 
 ?>
@@ -18,14 +26,14 @@ if (!isset($kategori)) {
 
         <h3 class="fw-bold">
 
-            <i class="bi bi-plus-circle text-primary"></i>
-            Tambah Informasi
+            <i class="bi bi-pencil-square text-primary"></i>
+            Edit Informasi
 
         </h3>
 
         <p class="text-muted mb-0">
 
-            Tambahkan informasi baru website
+            Update informasi website
 
         </p>
 
@@ -33,16 +41,16 @@ if (!isset($kategori)) {
 
     <?php
 
-    $form_title = 'Form Tambah Informasi';
+    $form_title = 'Form Edit Informasi';
 
     require 'app/views/components/form_card_start.php';
 
     ?>
 
-    <form action="index.php?url=informasi/simpan"
-          method="POST"
+    <form action="index.php?url=admin/informasi/update/<?= $informasi['id']; ?>"
+        method="POST"
 
-          enctype="multipart/form-data">
+        enctype="multipart/form-data">
 
         <!-- KATEGORI -->
         <div class="mb-3">
@@ -52,8 +60,8 @@ if (!isset($kategori)) {
             </label>
 
             <select name="kategori_id"
-                    class="form-select"
-                    required>
+                class="form-select"
+                required>
 
                 <option value="">
                     -- Pilih Kategori --
@@ -61,7 +69,11 @@ if (!isset($kategori)) {
 
                 <?php foreach ($kategori as $k) : ?>
 
-                    <option value="<?= $k['id']; ?>">
+                    <option value="<?= $k['id']; ?>"
+
+                        <?= $k['id'] == $informasi['kategori_id']
+                            ? 'selected'
+                            : ''; ?>>
 
                         <?= $k['nama_kategori']; ?>
 
@@ -81,13 +93,13 @@ if (!isset($kategori)) {
             </label>
 
             <input type="text"
-                   name="judul"
+                name="judul"
 
-                   class="form-control"
+                class="form-control"
 
-                   placeholder="Masukkan judul informasi"
+                value="<?= htmlspecialchars($informasi['judul']); ?>"
 
-                   required>
+                required>
 
         </div>
 
@@ -99,11 +111,24 @@ if (!isset($kategori)) {
             </label>
 
             <input type="file"
-                   name="gambar"
+                name="gambar"
 
-                   class="form-control">
+                class="form-control">
 
         </div>
+
+        <!-- PREVIEW -->
+        <?php if (!empty($informasi['gambar'])) : ?>
+
+            <div class="mb-3">
+
+                <img src="public/uploads/<?= $informasi['gambar']; ?>"
+                    class="img-fluid rounded shadow-sm"
+                    style="max-width: 250px;">
+
+            </div>
+
+        <?php endif; ?>
 
         <!-- ISI -->
         <div class="mb-3">
@@ -113,13 +138,11 @@ if (!isset($kategori)) {
             </label>
 
             <textarea name="isi"
-                      rows="8"
+                rows="8"
 
-                      class="form-control"
+                class="form-control"
 
-                      placeholder="Masukkan isi informasi"
-
-                      required></textarea>
+                required><?= htmlspecialchars($informasi['isi']); ?></textarea>
 
         </div>
 
@@ -129,12 +152,12 @@ if (!isset($kategori)) {
             <button class="btn btn-primary">
 
                 <i class="bi bi-save"></i>
-                Simpan
+                Update
 
             </button>
 
-            <a href="index.php?url=informasi"
-               class="btn btn-secondary">
+            <a href="index.php?url=admin/informasi"
+                class="btn btn-secondary">
 
                 Kembali
 
@@ -148,4 +171,4 @@ if (!isset($kategori)) {
 
 </div>
 
-<?php require_once 'app/views/layouts/footer.php'; ?>
+<?php require_once 'app/views/admin/layouts/footer.php'; ?>

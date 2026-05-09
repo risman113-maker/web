@@ -1,8 +1,16 @@
 <?php
 
-$title = 'Tambah Kategori';
+$title = 'Edit Kategori';
 
-require_once 'app/views/layouts/header.php';
+require_once 'app/views/admin/layouts/header.php';
+
+// Validasi data
+if (empty($kategori)) {
+
+    setFlash('danger', 'Data kategori tidak ditemukan');
+
+    redirect('kategori');
+}
 
 ?>
 
@@ -13,14 +21,14 @@ require_once 'app/views/layouts/header.php';
 
         <h3 class="fw-bold">
 
-            <i class="bi bi-plus-circle text-primary"></i>
-            Tambah Kategori
+            <i class="bi bi-pencil-square text-primary"></i>
+            Edit Kategori
 
         </h3>
 
         <p class="text-muted mb-0">
 
-            Tambahkan kategori baru website
+            Update data kategori website
 
         </p>
 
@@ -28,14 +36,14 @@ require_once 'app/views/layouts/header.php';
 
     <?php
 
-    $form_title = 'Form Tambah Kategori';
+    $form_title = 'Form Edit Kategori';
 
     require 'app/views/components/form_card_start.php';
 
     ?>
 
-    <form action="index.php?url=kategori/simpan"
-          method="POST">
+    <form action="index.php?url=kategori/update/<?= $kategori['id']; ?>"
+        method="POST">
 
         <!-- NAMA -->
         <div class="mb-3">
@@ -45,12 +53,13 @@ require_once 'app/views/layouts/header.php';
             </label>
 
             <input type="text"
-                   name="nama_kategori"
-                   class="form-control"
+                name="nama_kategori"
 
-                   placeholder="Masukkan nama kategori"
+                class="form-control"
 
-                   required>
+                value="<?= htmlspecialchars($kategori['nama_kategori']); ?>"
+
+                required>
 
         </div>
 
@@ -60,12 +69,12 @@ require_once 'app/views/layouts/header.php';
             <button class="btn btn-primary">
 
                 <i class="bi bi-save"></i>
-                Simpan
+                Update
 
             </button>
 
             <a href="index.php?url=kategori"
-               class="btn btn-secondary">
+                class="btn btn-secondary">
 
                 Kembali
 
@@ -79,4 +88,4 @@ require_once 'app/views/layouts/header.php';
 
 </div>
 
-<?php require_once 'app/views/layouts/footer.php'; ?>
+<?php require_once 'app/views/admin/layouts/footer.php'; ?>

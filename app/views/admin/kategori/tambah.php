@@ -1,15 +1,8 @@
 <?php
 
-$title = 'Edit Kategori';
+$title = 'Tambah Kategori';
 
-require_once 'app/views/layouts/header.php';
-// Validasi data
-if (empty($kategori)) {
-
-    setFlash('danger', 'Data kategori tidak ditemukan');
-
-    redirect('kategori');
-}
+require_once 'app/views/admin/layouts/header.php';
 
 ?>
 
@@ -20,14 +13,14 @@ if (empty($kategori)) {
 
         <h3 class="fw-bold">
 
-            <i class="bi bi-pencil-square text-primary"></i>
-            Edit Kategori
+            <i class="bi bi-plus-circle text-primary"></i>
+            Tambah Kategori
 
         </h3>
 
         <p class="text-muted mb-0">
 
-            Update data kategori website
+            Tambahkan kategori baru website
 
         </p>
 
@@ -35,14 +28,14 @@ if (empty($kategori)) {
 
     <?php
 
-    $form_title = 'Form Edit Kategori';
+    $form_title = 'Form Tambah Kategori';
 
     require 'app/views/components/form_card_start.php';
 
     ?>
 
-    <form action="index.php?url=kategori/update/<?= $kategori['id']; ?>"
-          method="POST">
+    <form action="index.php?url=kategori/simpan"
+        method="POST">
 
         <!-- NAMA -->
         <div class="mb-3">
@@ -52,13 +45,12 @@ if (empty($kategori)) {
             </label>
 
             <input type="text"
-                   name="nama_kategori"
+                name="nama_kategori"
+                class="form-control"
 
-                   class="form-control"
+                placeholder="Masukkan nama kategori"
 
-                   value="<?= htmlspecialchars($kategori['nama_kategori']); ?>"
-
-                   required>
+                required>
 
         </div>
 
@@ -68,12 +60,12 @@ if (empty($kategori)) {
             <button class="btn btn-primary">
 
                 <i class="bi bi-save"></i>
-                Update
+                Simpan
 
             </button>
 
             <a href="index.php?url=kategori"
-               class="btn btn-secondary">
+                class="btn btn-secondary">
 
                 Kembali
 
@@ -87,4 +79,4 @@ if (empty($kategori)) {
 
 </div>
 
-<?php require_once 'app/views/layouts/footer.php'; ?>
+<?php require_once 'app/views/admin/layouts/footer.php'; ?>

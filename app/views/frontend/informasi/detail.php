@@ -1,11 +1,12 @@
 <?php
 
+// VALIDASI DATA
 if (empty($informasi)) {
 
     die('Informasi tidak ditemukan');
 }
 
-$title = $informasi['judul'];
+$title = htmlspecialchars($informasi['judul']);
 
 require_once 'app/views/frontend/layouts/header.php';
 
@@ -20,23 +21,24 @@ require_once 'app/views/frontend/layouts/header.php';
 
             <div class="col-lg-9">
 
-                <div class="card shadow-sm">
+                <div class="card shadow-sm border-0">
 
                     <!-- GAMBAR -->
                     <?php if (!empty($informasi['gambar'])) : ?>
 
-                        <img src="public/uploads/<?= $informasi['gambar']; ?>"
+                        <img src="public/uploads/<?= htmlspecialchars($informasi['gambar']); ?>"
                             class="card-img-top"
+                            alt="<?= htmlspecialchars($informasi['judul']); ?>"
                             style="max-height: 500px; object-fit: cover;">
 
                     <?php endif; ?>
 
-                    <div class="card-body p-4">
+                    <div class="card-body p-4 p-md-5">
 
                         <!-- KATEGORI -->
                         <span class="badge bg-primary mb-3">
 
-                            <?= $informasi['nama_kategori']; ?>
+                            <?= htmlspecialchars($informasi['nama_kategori']); ?>
 
                         </span>
 
@@ -52,7 +54,9 @@ require_once 'app/views/frontend/layouts/header.php';
 
                             <i class="bi bi-calendar-event"></i>
 
-                            <?= date('d F Y', strtotime($informasi['created_at'])); ?>
+                            <?= !empty($informasi['created_at'])
+                                ? date('d F Y', strtotime($informasi['created_at']))
+                                : '-'; ?>
 
                         </div>
 
@@ -66,7 +70,7 @@ require_once 'app/views/frontend/layouts/header.php';
                         <!-- BUTTON -->
                         <div class="mt-5">
 
-                            <a href="index.php?url=home/informasi"
+                            <a href="index.php?url=informasi"
                                 class="btn btn-secondary">
 
                                 <i class="bi bi-arrow-left"></i>

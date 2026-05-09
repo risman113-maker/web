@@ -13,8 +13,18 @@ require_once 'app/views/frontend/layouts/header.php';
 
         <div class="row align-items-center">
 
+            <!-- TEXT -->
             <div class="col-lg-6">
 
+                <!-- BADGE -->
+                <span class="hero-badge mb-3 d-inline-block">
+
+                    <i class="bi bi-stars"></i>
+                    Website Sekolah Modern
+
+                </span>
+
+                <!-- TITLE -->
                 <h1 class="hero-title mb-4">
 
                     Selamat Datang di
@@ -22,26 +32,28 @@ require_once 'app/views/frontend/layouts/header.php';
 
                 </h1>
 
+                <!-- TEXT -->
                 <p class="hero-text mb-4">
 
-                    Website informasi sekolah modern untuk
-                    menyampaikan berita, pengumuman,
-                    dan kegiatan sekolah secara cepat dan mudah.
+                    Media informasi sekolah untuk menyampaikan
+                    berita, pengumuman, dan kegiatan sekolah
+                    secara cepat dan mudah diakses.
 
                 </p>
 
+                <!-- BUTTON -->
                 <div class="d-flex gap-3 flex-wrap">
 
-                    <a href="index.php?url=home/informasi"
-                        class="btn btn-light btn-lg">
+                    <a href="index.php?url=informasi"
+                        class="btn btn-light rounded-pill px-4">
 
                         <i class="bi bi-newspaper"></i>
-                        Lihat Informasi
+                        Informasi
 
                     </a>
 
                     <a href="#informasi"
-                        class="btn btn-outline-light btn-lg">
+                        class="btn btn-outline-light rounded-pill px-4">
 
                         Jelajahi
 
@@ -55,8 +67,8 @@ require_once 'app/views/frontend/layouts/header.php';
             <div class="col-lg-6 text-center mt-5 mt-lg-0">
 
                 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
-                    class="img-fluid"
-                    style="max-height: 350px;">
+                    class="img-fluid hero-image"
+                    alt="Hero Image">
 
             </div>
 
@@ -97,58 +109,67 @@ require_once 'app/views/frontend/layouts/header.php';
 
                     <div class="col-md-4">
 
-                        <div class="card shadow-sm h-100">
+                        <div class="card berita-card h-100 border-0 shadow-sm">
 
                             <!-- GAMBAR -->
-                            <?php if (!empty($i['gambar'])) : ?>
+                            <div class="overflow-hidden posisi-gambar">
 
-                                <img src="public/uploads/<?= $i['gambar']; ?>"
-                                    class="card-img-top">
+                                <?php if (!empty($i['gambar'])) : ?>
 
-                            <?php else : ?>
+                                    <img src="public/uploads/<?= htmlspecialchars($i['gambar']); ?>"
+                                        class="card-img-top berita-img"
+                                        alt="<?= htmlspecialchars($i['judul']); ?>">
 
-                                <img src="https://via.placeholder.com/600x400"
-                                    class="card-img-top">
+                                <?php else : ?>
 
-                            <?php endif; ?>
+                                    <img src="https://via.placeholder.com/600x400"
+                                        class="card-img-top berita-img"
+                                        alt="No Image">
 
-                            <div class="card-body">
+                                <?php endif; ?>
 
-                                <!-- KATEGORI -->
-                                <span class="badge bg-primary mb-2">
+                                <!-- BADGE -->
+                                <span class="badge kategori-badge">
 
-                                    <?= $i['nama_kategori']; ?>
+                                    <?= htmlspecialchars($i['nama_kategori']); ?>
 
                                 </span>
 
+                            </div>
+
+                            <div class="card-body d-flex flex-column">
+
                                 <!-- JUDUL -->
-                                <h5 class="fw-bold">
+                                <h5 class="fw-bold berita-title">
 
                                     <?= htmlspecialchars($i['judul']); ?>
 
                                 </h5>
 
                                 <!-- ISI -->
-                                <p class="text-muted">
+                                <p class="text-muted flex-grow-1">
 
-                                    <?= substr(strip_tags($i['isi']), 0, 100); ?>...
+                                    <?= substr(strip_tags($i['isi']), 0, 110); ?>...
 
                                 </p>
 
-                            </div>
+                                <!-- FOOTER -->
+                                <div class="d-flex justify-content-between align-items-center mt-3">
 
-                            <div class="card-footer bg-white border-0">
-
-                                <div class="d-flex justify-content-between align-items-center">
-
+                                    <!-- TANGGAL -->
                                     <small class="text-muted">
 
-                                        <?= date('d M Y', strtotime($i['created_at'])); ?>
+                                        <i class="bi bi-calendar-event"></i>
+
+                                        <?= !empty($i['created_at'])
+                                            ? date('d M Y', strtotime($i['created_at']))
+                                            : '-'; ?>
 
                                     </small>
 
-                                    <a href="informasi/<?= $i['slug']; ?>"
-                                        class="btn btn-sm btn-primary">
+                                    <!-- BUTTON -->
+                                    <a href="index.php?url=informasi/<?= htmlspecialchars($i['slug']); ?>"
+                                        class="btn btn-primary btn-sm px-3 rounded-pill">
 
                                         Baca
 
@@ -168,7 +189,7 @@ require_once 'app/views/frontend/layouts/header.php';
 
                 <div class="col-12">
 
-                    <div class="alert alert-info text-center">
+                    <div class="alert alert-info text-center shadow-sm">
 
                         Belum ada informasi tersedia.
 
@@ -177,6 +198,17 @@ require_once 'app/views/frontend/layouts/header.php';
                 </div>
 
             <?php endif; ?>
+
+        </div>
+
+        <div class="text-center mt-5">
+
+            <a href="index.php?url=informasi"
+                class="btn btn-outline-primary btn-lg rounded-pill px-4">
+
+                Lihat Semua Informasi
+
+            </a>
 
         </div>
 
@@ -194,7 +226,8 @@ require_once 'app/views/frontend/layouts/header.php';
             <div class="col-lg-6">
 
                 <img src="https://cdn-icons-png.flaticon.com/512/4207/4207249.png"
-                    class="img-fluid">
+                    class="img-fluid"
+                    alt="About Image">
 
             </div>
 

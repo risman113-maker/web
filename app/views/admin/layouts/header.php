@@ -13,17 +13,17 @@
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-          rel="stylesheet">
+        rel="stylesheet">
 
     <!-- Select2 -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
-          rel="stylesheet" />
+        rel="stylesheet" />
 
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <!-- DataTables -->
     <link rel="stylesheet"
-          href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+        href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
@@ -31,7 +31,7 @@
 
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-          rel="stylesheet">
+        rel="stylesheet">
 
     <style>
         html,
@@ -220,143 +220,143 @@
 
 <body>
 
-<?php
+    <?php
 
-startSession();
+    startSession();
 
-if (!isset($_SESSION['user'])) {
+    if (!isset($_SESSION['user'])) {
 
-    redirect('auth');
-}
+        redirect('auth');
+    }
 
-$user = $_SESSION['user'];
+    $user = $_SESSION['user'];
 
-?>
+    ?>
 
-<div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+    <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
 
-<div class="wrapper">
+    <div class="wrapper">
 
-    <!-- SIDEBAR -->
-    <div class="sidebar" id="sidebar">
+        <!-- SIDEBAR -->
+        <div class="sidebar" id="sidebar">
 
-        <!-- LOGO -->
-        <div class="text-center mb-4">
+            <!-- LOGO -->
+            <div class="text-center mb-4">
 
-            <i class="bi bi-file-earmark-text fs-1"></i>
+                <i class="bi bi-file-earmark-text fs-1"></i>
 
-            <h5 class="mt-2 mb-0 fw-bold">
-                Aplikasi SKL
-            </h5>
+                <h5 class="mt-2 mb-0 fw-bold">
+                    Aplikasi SKL
+                </h5>
 
-            <small class="text-light">
-                <?= ucfirst($user['role']); ?>
-            </small>
-
-        </div>
-
-        <!-- MENU ADMIN -->
-        <?php if ($user['role'] === 'admin') : ?>
-
-            <a href="index.php?url=admin/dashboard"
-               class="menu-item <?= activeMenu('admin/dashboard'); ?>">
-
-                <i class="bi bi-house-door"></i>
-                Dashboard
-
-            </a>
-
-            <a href="index.php?url=kategori"
-            class="menu-item <?= activeMenu('kategori'); ?>">
-
-                <i class="bi bi-tags"></i>
-                Kategori
-
-            </a>
-
-            <a href="index.php?url=informasi"
-            class="menu-item <?= activeMenu('informasi'); ?>">
-
-                <i class="bi bi-newspaper"></i>
-                Informasi
-
-            </a>
-
-            <a href="index.php?url=admin/admin"
-               class="menu-item <?= activeMenu('admin/admin'); ?>">
-
-                <i class="bi bi-people"></i>
-                Manajemen User
-
-            </a>
-
-        <?php endif; ?>
-
-        <!-- FOOTER SIDEBAR -->
-        <div class="mt-auto text-center pt-4">
-
-            <small>
-
-                Login sebagai <br>
-
-                <strong>
-                    <?= htmlspecialchars($user['nama']); ?>
-                </strong>
-
-            </small>
-
-        </div>
-
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div class="main-content">
-
-        <!-- TOPBAR -->
-        <nav class="navbar topbar px-4">
-
-            <div class="container-fluid">
-
-                <div class="d-flex align-items-center">
-
-                    <button class="btn btn-outline-primary d-md-none me-2"
-                            id="toggleSidebar">
-
-                        <i class="bi bi-list"></i>
-
-                    </button>
-
-                    <span class="navbar-text fw-bold text-uppercase text-primary">
-
-                        SMAN 1 CIGOMBONG
-
-                    </span>
-
-                </div>
-
-                <div class="d-flex align-items-center gap-3">
-
-                    <span class="text-muted small d-none d-md-block">
-
-                        <?= date('d M Y'); ?>
-
-                    </span>
-
-                    <a href="index.php?url=auth/logout"
-                       class="btn btn-sm btn-outline-danger">
-
-                        <i class="bi bi-box-arrow-right"></i>
-                        Logout
-
-                    </a>
-
-                </div>
+                <small class="text-light">
+                    <?= ucfirst($user['role']); ?>
+                </small>
 
             </div>
 
-        </nav>
+            <!-- MENU ADMIN -->
+            <?php if ($user['role'] === 'admin') : ?>
 
-        <!-- CONTENT -->
-        <div class="content">
+                <a href="index.php?url=admin/dashboard"
+                    class="menu-item <?= activeMenu('admin/dashboard'); ?>">
 
-            <?php flash(); ?>
+                    <i class="bi bi-house-door"></i>
+                    Dashboard
+
+                </a>
+
+                <a href="index.php?url=kategori"
+                    class="menu-item <?= activeMenu('kategori'); ?>">
+
+                    <i class="bi bi-tags"></i>
+                    Kategori
+
+                </a>
+
+                <a href="index.php?url=admin/informasi"
+                    class="menu-item <?= activeMenu('admin/informasi'); ?>">
+
+                    <i class="bi bi-newspaper"></i>
+                    Informasi
+
+                </a>
+
+                <a href="index.php?url=admin/users"
+                    class="menu-item <?= activeMenu('admin/users'); ?>">
+
+                    <i class="bi bi-people"></i>
+                    Manajemen User
+
+                </a>
+
+            <?php endif; ?>
+
+            <!-- FOOTER SIDEBAR -->
+            <div class="mt-auto text-center pt-4">
+
+                <small>
+
+                    Login sebagai <br>
+
+                    <strong>
+                        <?= htmlspecialchars($user['nama']); ?>
+                    </strong>
+
+                </small>
+
+            </div>
+
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="main-content">
+
+            <!-- TOPBAR -->
+            <nav class="navbar topbar px-4">
+
+                <div class="container-fluid">
+
+                    <div class="d-flex align-items-center">
+
+                        <button class="btn btn-outline-primary d-md-none me-2"
+                            id="toggleSidebar">
+
+                            <i class="bi bi-list"></i>
+
+                        </button>
+
+                        <span class="navbar-text fw-bold text-uppercase text-primary">
+
+                            SMAN 1 CIGOMBONG
+
+                        </span>
+
+                    </div>
+
+                    <div class="d-flex align-items-center gap-3">
+
+                        <span class="text-muted small d-none d-md-block">
+
+                            <?= date('d M Y'); ?>
+
+                        </span>
+
+                        <a href="index.php?url=auth/logout"
+                            class="btn btn-sm btn-outline-danger">
+
+                            <i class="bi bi-box-arrow-right"></i>
+                            Logout
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </nav>
+
+            <!-- CONTENT -->
+            <div class="content">
+
+                <?php flash(); ?>

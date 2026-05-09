@@ -33,25 +33,71 @@ class App
 
             $url = trim($_GET['url'], '/');
 
+            // ==========================
             // LOGIN
+            // ==========================
             if ($url == 'login') {
 
                 return ['auth', 'index'];
             }
 
+            // ==========================
             // LOGOUT
+            // ==========================
             if ($url == 'logout') {
 
                 return ['auth', 'logout'];
             }
 
-            // INFORMASI LIST
+            // ==========================
+            // ADMIN INFORMASI
+            // ==========================
+
+            // INDEX
+            if ($url == 'admin/informasi') {
+
+                return ['admin', 'informasi'];
+            }
+
+            // TAMBAH
+            if ($url == 'admin/informasi/tambah') {
+
+                return ['informasi', 'tambah'];
+            }
+
+            // SIMPAN
+            if ($url == 'admin/informasi/simpan') {
+
+                return ['informasi', 'simpan'];
+            }
+
+            // EDIT
+            if (preg_match('#^admin/informasi/edit/([0-9]+)$#', $url, $matches)) {
+
+                return ['informasi', 'edit', $matches[1]];
+            }
+
+            // UPDATE
+            if (preg_match('#^admin/informasi/update/([0-9]+)$#', $url, $matches)) {
+
+                return ['informasi', 'update', $matches[1]];
+            }
+
+            // HAPUS
+            if (preg_match('#^admin/informasi/hapus/([0-9]+)$#', $url, $matches)) {
+
+                return ['informasi', 'hapus', $matches[1]];
+            }
+
+            // ==========================
+            // INFORMASI FRONTEND
+            // ==========================
             if ($url == 'informasi') {
 
                 return ['home', 'informasi'];
             }
 
-            // DETAIL INFORMASI
+            // DETAIL INFORMASI FRONTEND
             if (preg_match('#^informasi/(.+)$#', $url, $matches)) {
 
                 return ['home', 'detail', $matches[1]];

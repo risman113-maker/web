@@ -2,7 +2,7 @@
 
 $title = 'Dashboard';
 
-require_once 'app/views/layouts/header.php';
+require_once 'app/views/admin/layouts/header.php';
 
 ?>
 
@@ -65,7 +65,7 @@ require_once 'app/views/layouts/header.php';
                 <div class="text-primary">
 
                     <i class="bi bi-person-circle"
-                       style="font-size: 60px;"></i>
+                        style="font-size: 60px;"></i>
 
                 </div>
 
@@ -207,4 +207,4 @@ require_once 'app/views/layouts/header.php';
 
 </div>
 
-<?php require_once 'app/views/layouts/footer.php'; ?>
+<?php require_once 'app/views/admin/layouts/footer.php'; ?>

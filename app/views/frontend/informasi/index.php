@@ -7,7 +7,7 @@ require_once 'app/views/frontend/layouts/header.php';
 ?>
 
 <!-- HEADER -->
-<section class="py-5 bg-white border-bottom">
+<section class="py-5 bg-white border-bottom mt-5">
 
     <div class="container text-center">
 
@@ -40,60 +40,67 @@ require_once 'app/views/frontend/layouts/header.php';
 
                     <div class="col-md-4">
 
-                        <div class="card shadow-sm h-100">
+                        <div class="card berita-card border-0 shadow-sm h-100">
 
                             <!-- GAMBAR -->
-                            <?php if (!empty($i['gambar'])) : ?>
+                            <div class="berita-image-wrapper">
 
-                                <img src="public/uploads/<?= $i['gambar']; ?>"
-                                    class="card-img-top">
+                                <?php if (!empty($i['gambar'])) : ?>
 
-                            <?php else : ?>
+                                    <img src="public/uploads/<?= htmlspecialchars($i['gambar']); ?>"
+                                        class="card-img-top berita-img"
+                                        alt="<?= htmlspecialchars($i['judul']); ?>">
 
-                                <img src="https://via.placeholder.com/600x400"
-                                    class="card-img-top">
+                                <?php else : ?>
 
-                            <?php endif; ?>
+                                    <img src="https://via.placeholder.com/600x400"
+                                        class="card-img-top berita-img"
+                                        alt="No Image">
 
-                            <div class="card-body">
+                                <?php endif; ?>
 
                                 <!-- KATEGORI -->
-                                <span class="badge bg-primary mb-2">
+                                <span class="badge kategori-badge">
 
-                                    <?= $i['nama_kategori']; ?>
+                                    <?= htmlspecialchars($i['nama_kategori']); ?>
 
                                 </span>
 
+                            </div>
+
+                            <div class="card-body d-flex flex-column">
+
                                 <!-- JUDUL -->
-                                <h5 class="fw-bold">
+                                <h5 class="fw-bold berita-title mb-3">
 
                                     <?= htmlspecialchars($i['judul']); ?>
 
                                 </h5>
 
                                 <!-- ISI -->
-                                <p class="text-muted">
+                                <p class="text-muted berita-text flex-grow-1">
 
                                     <?= substr(strip_tags($i['isi']), 0, 120); ?>...
 
                                 </p>
 
-                            </div>
-
-                            <div class="card-footer bg-white border-0">
-
-                                <div class="d-flex justify-content-between align-items-center">
+                                <!-- FOOTER -->
+                                <div class="d-flex justify-content-between align-items-center mt-3">
 
                                     <!-- TANGGAL -->
                                     <small class="text-muted">
 
-                                        <?= date('d M Y', strtotime($i['created_at'])); ?>
+                                        <i class="bi bi-calendar-event"></i>
+
+                                        <?= !empty($i['created_at'])
+                                            ? date('d M Y', strtotime($i['created_at']))
+                                            : '-'; ?>
 
                                     </small>
 
                                     <!-- DETAIL -->
-                                    <a href="index.php?url=home/detail/<?= $i['slug']; ?>"
-                                        class="btn btn-sm btn-primary">
+                                    <a href="index.php?url=informasi/<?= htmlspecialchars($i['slug']); ?>"
+                                        class="btn btn-primary btn-sm rounded-pill px-3">
 
                                         Baca
 
@@ -113,7 +120,9 @@ require_once 'app/views/frontend/layouts/header.php';
 
                 <div class="col-12">
 
-                    <div class="alert alert-info text-center">
+                    <div class="alert alert-info text-center shadow-sm rounded-4">
+
+                        <i class="bi bi-info-circle"></i>
 
                         Belum ada informasi tersedia.
 
@@ -124,7 +133,6 @@ require_once 'app/views/frontend/layouts/header.php';
             <?php endif; ?>
 
         </div>
-
     </div>
 
 </section>

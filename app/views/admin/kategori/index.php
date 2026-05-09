@@ -2,7 +2,7 @@
 
 $title = 'Kategori';
 
-require_once 'app/views/layouts/header.php';
+require_once 'app/views/admin/layouts/header.php';
 
 ?>
 
@@ -28,8 +28,9 @@ require_once 'app/views/layouts/header.php';
 
         </div>
 
+        <!-- BUTTON TAMBAH -->
         <a href="index.php?url=kategori/tambah"
-           class="btn btn-primary">
+            class="btn btn-primary">
 
             <i class="bi bi-plus-circle"></i>
             Tambah Kategori
@@ -48,7 +49,7 @@ require_once 'app/views/layouts/header.php';
                 <div class="table-responsive">
 
                     <table class="table table-hover align-middle"
-                           id="datatable">
+                        id="datatable">
 
                         <thead>
 
@@ -87,7 +88,7 @@ require_once 'app/views/layouts/header.php';
 
                                         <span class="badge bg-secondary">
 
-                                            <?= $k['slug']; ?>
+                                            <?= htmlspecialchars($k['slug']); ?>
 
                                         </span>
 
@@ -99,7 +100,7 @@ require_once 'app/views/layouts/header.php';
 
                                             <!-- EDIT -->
                                             <a href="index.php?url=kategori/edit/<?= $k['id']; ?>"
-                                               class="btn btn-outline-primary">
+                                                class="btn btn-outline-primary">
 
                                                 <i class="bi bi-pencil-square"></i>
 
@@ -107,9 +108,8 @@ require_once 'app/views/layouts/header.php';
 
                                             <!-- HAPUS -->
                                             <a href="index.php?url=kategori/hapus/<?= $k['id']; ?>"
-                                               class="btn btn-outline-danger"
-
-                                               onclick="return confirm('Yakin ingin menghapus kategori ini?')">
+                                                class="btn btn-outline-danger"
+                                                onclick="return confirm('Yakin ingin menghapus kategori ini?')">
 
                                                 <i class="bi bi-trash"></i>
 
@@ -134,8 +134,7 @@ require_once 'app/views/layouts/header.php';
                 <?php
 
                 $empty_title = 'Belum Ada Kategori';
-
-                $empty_text = 'Silakan tambahkan kategori baru';
+                $empty_text  = 'Silakan tambahkan kategori baru';
 
                 require 'app/views/components/empty_state.php';
 
@@ -149,4 +148,4 @@ require_once 'app/views/layouts/header.php';
 
 </div>
 
-<?php require_once 'app/views/layouts/footer.php'; ?>
+<?php require_once 'app/views/admin/layouts/footer.php'; ?>

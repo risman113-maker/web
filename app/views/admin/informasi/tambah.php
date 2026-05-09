@@ -1,20 +1,12 @@
 <?php
 
-$title = 'Edit Informasi';
+$title = 'Tambah Informasi';
 
-require_once 'app/views/layouts/header.php';
+require_once 'app/views/admin/layouts/header.php';
 
-// VALIDASI
 if (!isset($kategori)) {
 
     $kategori = [];
-}
-
-if (empty($informasi)) {
-
-    setFlash('danger', 'Data informasi tidak ditemukan');
-
-    redirect('informasi');
 }
 
 ?>
@@ -26,14 +18,14 @@ if (empty($informasi)) {
 
         <h3 class="fw-bold">
 
-            <i class="bi bi-pencil-square text-primary"></i>
-            Edit Informasi
+            <i class="bi bi-plus-circle text-primary"></i>
+            Tambah Informasi
 
         </h3>
 
         <p class="text-muted mb-0">
 
-            Update informasi website
+            Tambahkan informasi baru website
 
         </p>
 
@@ -41,16 +33,16 @@ if (empty($informasi)) {
 
     <?php
 
-    $form_title = 'Form Edit Informasi';
+    $form_title = 'Form Tambah Informasi';
 
     require 'app/views/components/form_card_start.php';
 
     ?>
 
-    <form action="index.php?url=informasi/update/<?= $informasi['id']; ?>"
-          method="POST"
+    <form action="index.php?url=admin/informasi/simpan"
+        method="POST"
 
-          enctype="multipart/form-data">
+        enctype="multipart/form-data">
 
         <!-- KATEGORI -->
         <div class="mb-3">
@@ -60,8 +52,8 @@ if (empty($informasi)) {
             </label>
 
             <select name="kategori_id"
-                    class="form-select"
-                    required>
+                class="form-select"
+                required>
 
                 <option value="">
                     -- Pilih Kategori --
@@ -69,11 +61,7 @@ if (empty($informasi)) {
 
                 <?php foreach ($kategori as $k) : ?>
 
-                    <option value="<?= $k['id']; ?>"
-
-                        <?= $k['id'] == $informasi['kategori_id']
-                            ? 'selected'
-                            : ''; ?>>
+                    <option value="<?= $k['id']; ?>">
 
                         <?= $k['nama_kategori']; ?>
 
@@ -93,13 +81,13 @@ if (empty($informasi)) {
             </label>
 
             <input type="text"
-                   name="judul"
+                name="judul"
 
-                   class="form-control"
+                class="form-control"
 
-                   value="<?= htmlspecialchars($informasi['judul']); ?>"
+                placeholder="Masukkan judul informasi"
 
-                   required>
+                required>
 
         </div>
 
@@ -111,24 +99,11 @@ if (empty($informasi)) {
             </label>
 
             <input type="file"
-                   name="gambar"
+                name="gambar"
 
-                   class="form-control">
+                class="form-control">
 
         </div>
-
-        <!-- PREVIEW -->
-        <?php if (!empty($informasi['gambar'])) : ?>
-
-            <div class="mb-3">
-
-                <img src="public/uploads/<?= $informasi['gambar']; ?>"
-                     class="img-fluid rounded shadow-sm"
-                     style="max-width: 250px;">
-
-            </div>
-
-        <?php endif; ?>
 
         <!-- ISI -->
         <div class="mb-3">
@@ -138,11 +113,13 @@ if (empty($informasi)) {
             </label>
 
             <textarea name="isi"
-                      rows="8"
+                rows="8"
 
-                      class="form-control"
+                class="form-control"
 
-                      required><?= htmlspecialchars($informasi['isi']); ?></textarea>
+                placeholder="Masukkan isi informasi"
+
+                required></textarea>
 
         </div>
 
@@ -152,12 +129,12 @@ if (empty($informasi)) {
             <button class="btn btn-primary">
 
                 <i class="bi bi-save"></i>
-                Update
+                Simpan
 
             </button>
 
-            <a href="index.php?url=informasi"
-               class="btn btn-secondary">
+            <a href="index.php?url=admin/informasi"
+                class="btn btn-secondary">
 
                 Kembali
 
@@ -171,4 +148,4 @@ if (empty($informasi)) {
 
 </div>
 
-<?php require_once 'app/views/layouts/footer.php'; ?>
+<?php require_once 'app/views/admin/layouts/footer.php'; ?>

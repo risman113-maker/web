@@ -2,7 +2,7 @@
 
 $title = 'Informasi';
 
-require_once 'app/views/layouts/header.php';
+require_once 'app/views/admin/layouts/header.php';
 
 ?>
 
@@ -28,8 +28,8 @@ require_once 'app/views/layouts/header.php';
 
         </div>
 
-        <a href="index.php?url=informasi/tambah"
-           class="btn btn-primary">
+        <a href="index.php?url=admin/informasi/tambah"
+            class="btn btn-primary">
 
             <i class="bi bi-plus-circle"></i>
             Tambah Informasi
@@ -48,7 +48,7 @@ require_once 'app/views/layouts/header.php';
                 <div class="table-responsive">
 
                     <table class="table table-hover align-middle"
-                           id="datatable">
+                        id="datatable">
 
                         <thead>
 
@@ -86,8 +86,8 @@ require_once 'app/views/layouts/header.php';
                                         <?php if (!empty($i['gambar'])) : ?>
 
                                             <img src="public/uploads/<?= $i['gambar']; ?>"
-                                                 class="img-fluid rounded"
-                                                 style="height:70px; object-fit:cover;">
+                                                class="img-fluid rounded"
+                                                style="height:70px; object-fit:cover;">
 
                                         <?php else : ?>
 
@@ -142,18 +142,18 @@ require_once 'app/views/layouts/header.php';
                                         <div class="btn-group btn-group-sm">
 
                                             <!-- EDIT -->
-                                            <a href="index.php?url=informasi/edit/<?= $i['id']; ?>"
-                                               class="btn btn-outline-primary">
+                                            <a href="index.php?url=admin/informasi/edit/<?= $i['id']; ?>"
+                                                class="btn btn-outline-primary">
 
                                                 <i class="bi bi-pencil-square"></i>
 
                                             </a>
 
                                             <!-- HAPUS -->
-                                            <a href="index.php?url=informasi/hapus/<?= $i['id']; ?>"
-                                               class="btn btn-outline-danger"
+                                            <a href="index.php?url=admin/informasi/hapus/<?= $i['id']; ?>"
+                                                class="btn btn-outline-danger"
 
-                                               onclick="return confirm('Yakin ingin menghapus informasi ini?')">
+                                                onclick="return confirm('Yakin ingin menghapus informasi ini?')">
 
                                                 <i class="bi bi-trash"></i>
 
@@ -193,4 +193,4 @@ require_once 'app/views/layouts/header.php';
 
 </div>
 
-<?php require_once 'app/views/layouts/footer.php'; ?>
+<?php require_once 'app/views/admin/layouts/footer.php'; ?>
