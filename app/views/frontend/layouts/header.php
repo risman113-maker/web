@@ -271,8 +271,8 @@
         }
 
         /* =========================
-   NAVBAR
-========================= */
+        NAVBAR
+        ========================= */
 
         .navbar-custom {
             background: rgba(79, 101, 214, 0.92);
@@ -285,7 +285,7 @@
 
         /* SAAT SCROLL */
         .navbar-scrolled {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(79, 101, 214, 0.92);
             backdrop-filter: blur(12px);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             padding-top: 10px;
@@ -314,7 +314,7 @@
         }
 
         .navbar-scrolled .nav-link {
-            color: #333 !important;
+            color: #fafafa !important;
         }
 
         /* HOVER */
