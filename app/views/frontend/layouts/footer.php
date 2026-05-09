@@ -166,40 +166,8 @@
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        const navbar = document.getElementById('navbar');
-
-        let lastScroll = 0;
-
-        window.addEventListener('scroll', function() {
-
-            let currentScroll = window.pageYOffset;
-
-            // EFFECT BACKGROUND
-            if (currentScroll > 50) {
-
-                navbar.classList.add('navbar-scrolled');
-
-            } else {
-
-                navbar.classList.remove('navbar-scrolled');
-            }
-
-            // HIDE / SHOW NAVBAR
-            if (currentScroll > lastScroll && currentScroll > 100) {
-
-                // scroll ke bawah
-                navbar.classList.add('navbar-hidden');
-
-            } else {
-
-                // scroll ke atas
-                navbar.classList.remove('navbar-hidden');
-            }
-
-            lastScroll = currentScroll;
-        });
-    </script>
+    <!-- CUSTOM JS -->
+    <script src="assets/js/script.js"></script>
 
     </body>
 

@@ -13,7 +13,7 @@ require_once 'app/views/frontend/layouts/header.php';
 ?>
 
 <!-- DETAIL -->
-<section class="py-5">
+<section class="py-5 mt-5">
 
     <div class="container">
 

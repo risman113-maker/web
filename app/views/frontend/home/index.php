@@ -45,7 +45,7 @@ require_once 'app/views/frontend/layouts/header.php';
                 <div class="d-flex gap-3 flex-wrap">
 
                     <a href="index.php?url=informasi"
-                        class="btn btn-light rounded-pill px-4">
+                        class="btn btn-light rounded-pill px-4 shadow-sm">
 
                         <i class="bi bi-newspaper"></i>
                         Informasi
@@ -68,7 +68,8 @@ require_once 'app/views/frontend/layouts/header.php';
 
                 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
                     class="img-fluid hero-image"
-                    alt="Hero Image">
+                    alt="Hero Image"
+                    loading="lazy">
 
             </div>
 
@@ -103,60 +104,63 @@ require_once 'app/views/frontend/layouts/header.php';
 
         <div class="row g-4">
 
-            <?php if (!empty($informasi)) : ?>
+            <?php if (!empty($informasi) && is_array($informasi)) : ?>
 
                 <?php foreach ($informasi as $i) : ?>
 
-                    <div class="col-md-4">
+                    <div class="col-md-6 col-lg-4">
 
                         <div class="card berita-card h-100 border-0 shadow-sm">
 
-                            <!-- GAMBAR -->
+                            <!-- IMAGE -->
                             <div class="overflow-hidden posisi-gambar">
 
                                 <?php if (!empty($i['gambar'])) : ?>
 
                                     <img src="public/uploads/<?= htmlspecialchars($i['gambar']); ?>"
                                         class="card-img-top berita-img"
-                                        alt="<?= htmlspecialchars($i['judul']); ?>">
+                                        alt="<?= htmlspecialchars($i['judul'] ?? 'Informasi'); ?>"
+                                        loading="lazy">
 
                                 <?php else : ?>
 
                                     <img src="https://via.placeholder.com/600x400"
                                         class="card-img-top berita-img"
-                                        alt="No Image">
+                                        alt="No Image"
+                                        loading="lazy">
 
                                 <?php endif; ?>
 
                                 <!-- BADGE -->
                                 <span class="badge kategori-badge">
 
-                                    <?= htmlspecialchars($i['nama_kategori']); ?>
+                                    <?= htmlspecialchars($i['nama_kategori'] ?? 'Umum'); ?>
 
                                 </span>
 
                             </div>
 
+                            <!-- BODY -->
                             <div class="card-body d-flex flex-column">
 
-                                <!-- JUDUL -->
-                                <h5 class="fw-bold berita-title">
+                                <!-- TITLE -->
+                                <h5 class="fw-bold berita-title mb-3">
 
-                                    <?= htmlspecialchars($i['judul']); ?>
+                                    <?= htmlspecialchars($i['judul'] ?? 'Tanpa Judul'); ?>
 
                                 </h5>
 
-                                <!-- ISI -->
+                                <!-- CONTENT -->
                                 <p class="text-muted flex-grow-1">
 
-                                    <?= substr(strip_tags($i['isi']), 0, 110); ?>...
+                                    <?= substr(strip_tags($i['isi'] ?? ''), 0, 110); ?>...
 
                                 </p>
 
                                 <!-- FOOTER -->
                                 <div class="d-flex justify-content-between align-items-center mt-3">
 
-                                    <!-- TANGGAL -->
+                                    <!-- DATE -->
                                     <small class="text-muted">
 
                                         <i class="bi bi-calendar-event"></i>
@@ -168,7 +172,7 @@ require_once 'app/views/frontend/layouts/header.php';
                                     </small>
 
                                     <!-- BUTTON -->
-                                    <a href="index.php?url=informasi/<?= htmlspecialchars($i['slug']); ?>"
+                                    <a href="index.php?url=informasi/<?= urlencode($i['slug'] ?? ''); ?>"
                                         class="btn btn-primary btn-sm px-3 rounded-pill">
 
                                         Baca
@@ -189,7 +193,9 @@ require_once 'app/views/frontend/layouts/header.php';
 
                 <div class="col-12">
 
-                    <div class="alert alert-info text-center shadow-sm">
+                    <div class="alert alert-info text-center shadow-sm rounded-4">
+
+                        <i class="bi bi-info-circle"></i>
 
                         Belum ada informasi tersedia.
 
@@ -201,6 +207,7 @@ require_once 'app/views/frontend/layouts/header.php';
 
         </div>
 
+        <!-- BUTTON -->
         <div class="text-center mt-5">
 
             <a href="index.php?url=informasi"
@@ -221,21 +228,30 @@ require_once 'app/views/frontend/layouts/header.php';
 
     <div class="container">
 
-        <div class="row align-items-center">
+        <div class="row align-items-center g-5">
 
-            <div class="col-lg-6">
+            <!-- IMAGE -->
+            <div class="col-lg-6 text-center">
 
                 <img src="https://cdn-icons-png.flaticon.com/512/4207/4207249.png"
                     class="img-fluid"
-                    alt="About Image">
+                    alt="About Image"
+                    loading="lazy">
 
             </div>
 
+            <!-- TEXT -->
             <div class="col-lg-6">
 
-                <h2 class="fw-bold mb-4">
+                <span class="text-primary fw-semibold">
 
                     Tentang Website
+
+                </span>
+
+                <h2 class="fw-bold mb-4 mt-2">
+
+                    Website Informasi Sekolah Modern
 
                 </h2>
 
@@ -248,8 +264,16 @@ require_once 'app/views/frontend/layouts/header.php';
 
                 </p>
 
+                <p class="text-muted">
+
+                    Dengan tampilan modern dan sistem berbasis PHP MVC,
+                    website ini membantu sekolah menyampaikan
+                    informasi secara lebih efektif.
+
+                </p>
+
                 <a href="#"
-                    class="btn btn-primary mt-3">
+                    class="btn btn-primary rounded-pill px-4 mt-3">
 
                     Selengkapnya
 
