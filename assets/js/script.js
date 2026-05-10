@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const editor = document.querySelector('#editor');
 
-    if (editor) {
+    if (editor && typeof ClassicEditor !== 'undefined') {
 
         ClassicEditor
             .create(editor)

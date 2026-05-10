@@ -117,15 +117,14 @@ if (!isset($kategori)) {
                 id="editor"
                 rows="8"
                 class="form-control"
-                placeholder="Masukkan isi informasi"
-                required></textarea>
+                placeholder="Masukkan isi informasi"></textarea>
 
         </div>
 
         <!-- BUTTON -->
         <div class="d-flex gap-2">
 
-            <button class="btn btn-primary">
+            <button type="submit" class="btn btn-primary">
 
                 <i class="bi bi-save"></i>
                 Simpan
