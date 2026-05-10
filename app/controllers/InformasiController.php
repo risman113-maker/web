@@ -47,8 +47,10 @@ class InformasiController extends Controller
         }
 
         $judul       = trim($_POST['judul'] ?? '');
+        $penulis = trim($_POST['penulis'] ?? '');
         $kategori_id = trim($_POST['kategori_id'] ?? '');
         $isi         = trim($_POST['isi'] ?? '');
+
 
         // VALIDASI INPUT
         if (empty($judul) || empty($kategori_id) || empty($isi)) {
@@ -127,9 +129,11 @@ class InformasiController extends Controller
         $model->insert([
             'kategori_id' => $kategori_id,
             'judul'       => $judul,
+            'penulis'       => $penulis,
             'slug'        => $slug,
             'isi'         => $isi,
             'gambar'      => $gambar
+
         ]);
 
         setFlash('success', 'Informasi berhasil ditambahkan');
@@ -176,8 +180,10 @@ class InformasiController extends Controller
         }
 
         $judul       = trim($_POST['judul'] ?? '');
+        $penulis = trim($_POST['penulis'] ?? '');
         $kategori_id = trim($_POST['kategori_id'] ?? '');
         $isi         = trim($_POST['isi'] ?? '');
+
 
         // VALIDASI INPUT
         if (empty($judul) || empty($kategori_id) || empty($isi)) {
@@ -236,9 +242,11 @@ class InformasiController extends Controller
         $model->update($id, [
             'kategori_id' => $kategori_id,
             'judul'       => $judul,
+            'penulis' => $penulis,
             'slug'        => $slug,
             'isi'         => $isi,
             'gambar'      => $gambar
+
         ]);
 
         setFlash('success', 'Informasi berhasil diupdate');

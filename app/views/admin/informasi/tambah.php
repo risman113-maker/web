@@ -121,6 +121,21 @@ if (!isset($kategori)) {
 
         </div>
 
+        <!-- PENULIS -->
+        <div class="mb-3">
+
+            <label class="form-label">
+                Penulis
+            </label>
+
+            <input type="text"
+                name="penulis"
+                class="form-control"
+                placeholder="Contoh: Kesiswaan"
+                required>
+
+        </div>
+
         <!-- BUTTON -->
         <div class="d-flex gap-2">
 

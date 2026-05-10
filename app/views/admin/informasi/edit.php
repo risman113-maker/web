@@ -147,6 +147,21 @@ if (empty($informasi)) {
 
         </div>
 
+        <!-- PENULIS -->
+        <div class="mb-3">
+
+            <label class="form-label">
+                Penulis
+            </label>
+
+            <input type="text"
+                name="penulis"
+                class="form-control"
+                value="<?= htmlspecialchars($informasi['penulis']); ?>"
+                required>
+
+        </div>
+
         <!-- BUTTON -->
         <div class="d-flex gap-2">
 

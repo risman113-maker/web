@@ -60,14 +60,15 @@ class InformasiModel
     {
         $stmt = $this->pdo->prepare("
             INSERT INTO informasi
-            (kategori_id, judul, slug, isi, gambar)
+            (kategori_id, judul, penulis, slug, isi, gambar)
 
-            VALUES (?, ?, ?, ?, ?)
+            VALUES (?, ?, ?, ?, ?, ?)
         ");
 
         return $stmt->execute([
             $data['kategori_id'],
             $data['judul'],
+            $data['penulis'],
             $data['slug'],
             $data['isi'],
             $data['gambar']
@@ -99,6 +100,7 @@ class InformasiModel
 
             SET kategori_id = ?,
                 judul = ?,
+                penulis = ?,
                 slug = ?,
                 isi = ?,
                 gambar = ?
@@ -109,6 +111,7 @@ class InformasiModel
         return $stmt->execute([
             $data['kategori_id'],
             $data['judul'],
+            $data['penulis'],
             $data['slug'],
             $data['isi'],
             $data['gambar'],

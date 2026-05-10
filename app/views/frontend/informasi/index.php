@@ -92,6 +92,14 @@ require_once 'app/views/frontend/layouts/header.php';
 
                                     </small>
 
+                                    <small class="text-muted d-block mt-1">
+
+                                        <i class="bi bi-person"></i>
+
+                                        <?= htmlspecialchars($i['penulis']); ?>
+
+                                    </small>
+
                                     <!-- DETAIL -->
                                     <a href="index.php?url=informasi/<?= htmlspecialchars($i['slug']); ?>"
                                         class="btn btn-primary btn-sm rounded-pill px-3">

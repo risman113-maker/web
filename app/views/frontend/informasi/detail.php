@@ -48,14 +48,28 @@ require_once 'app/views/frontend/layouts/header.php';
 
                         </h2>
 
-                        <!-- TANGGAL -->
-                        <div class="text-muted mb-4">
+                        <!-- META -->
+                        <div class="text-muted mb-4 d-flex flex-wrap gap-3">
 
-                            <i class="bi bi-calendar-event"></i>
+                            <!-- TANGGAL -->
+                            <span>
 
-                            <?= !empty($informasi['created_at'])
-                                ? date('d F Y', strtotime($informasi['created_at']))
-                                : '-'; ?>
+                                <i class="bi bi-calendar-event"></i>
+
+                                <?= !empty($informasi['created_at'])
+                                    ? date('d F Y', strtotime($informasi['created_at']))
+                                    : '-'; ?>
+
+                            </span>
+
+                            <!-- PENULIS -->
+                            <span>
+
+                                <i class="bi bi-person"></i>
+
+                                <?= htmlspecialchars($informasi['penulis']); ?>
+
+                            </span>
 
                         </div>
 
