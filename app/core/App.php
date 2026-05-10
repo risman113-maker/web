@@ -89,6 +89,48 @@ class App
                 return ['informasi', 'hapus', $matches[1]];
             }
 
+
+
+            // ==========================
+            // ADMIN PENGUMUMAN
+            // ==========================
+
+            // INDEX
+            if ($url == 'admin/pengumuman') {
+
+                return ['pengumuman', 'index'];
+            }
+
+            // TAMBAH
+            if ($url == 'admin/pengumuman/tambah') {
+
+                return ['pengumuman', 'tambah'];
+            }
+
+            // SIMPAN
+            if ($url == 'admin/pengumuman/simpan') {
+
+                return ['pengumuman', 'simpan'];
+            }
+
+            // EDIT
+            if (preg_match('#^admin/pengumuman/edit/([0-9]+)$#', $url, $matches)) {
+
+                return ['pengumuman', 'edit', $matches[1]];
+            }
+
+            // UPDATE
+            if (preg_match('#^admin/pengumuman/update/([0-9]+)$#', $url, $matches)) {
+
+                return ['pengumuman', 'update', $matches[1]];
+            }
+
+            // HAPUS
+            if (preg_match('#^admin/pengumuman/hapus/([0-9]+)$#', $url, $matches)) {
+
+                return ['pengumuman', 'hapus', $matches[1]];
+            }
+
             // ==========================
             // INFORMASI FRONTEND
             // ==========================
@@ -102,6 +144,24 @@ class App
 
                 return ['home', 'detail', $matches[1]];
             }
+
+
+            // ==========================
+            // PENGUMUMAN FRONTEND
+            // ==========================
+
+            // INDEX
+            if ($url == 'pengumuman') {
+
+                return ['home', 'pengumuman'];
+            }
+
+            // DETAIL
+            if (preg_match('#^pengumuman/(.+)$#', $url, $matches)) {
+
+                return ['home', 'detailPengumuman', $matches[1]];
+            }
+
 
             return explode('/', filter_var($url, FILTER_SANITIZE_URL));
         }

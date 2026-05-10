@@ -2,6 +2,7 @@
 <html lang="id">
 
 <head>
+
     <meta charset="UTF-8">
 
     <title><?= pageTitle($title ?? 'Website Sekolah'); ?></title>
@@ -18,33 +19,39 @@
         rel="stylesheet">
 
     <!-- CSS CUSTOM -->
-    <link rel="stylesheet" href="assets/css/style.css">
-
+    <link rel="stylesheet"
+        href="assets/css/style.css">
 
 </head>
 
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" id="navbar">
-
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top"
+        id="navbar">
 
         <div class="container">
 
             <!-- LOGO -->
-            <a class="navbar-brand"
+            <a class="navbar-brand d-flex align-items-center gap-2"
                 href="index.php">
 
                 <i class="bi bi-mortarboard-fill"></i>
-                Website Sekolah
+
+                <span>
+                    Website Sekolah
+                </span>
 
             </a>
 
             <!-- TOGGLE -->
-            <button class="navbar-toggler"
+            <button class="navbar-toggler border-0 shadow-none"
                 type="button"
                 data-bs-toggle="collapse"
-                data-bs-target="#navbarNav">
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
 
                 <span class="navbar-toggler-icon"></span>
 
@@ -54,12 +61,12 @@
             <div class="collapse navbar-collapse"
                 id="navbarNav">
 
-                <ul class="navbar-nav ms-auto align-items-lg-center">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
 
                     <!-- HOME -->
                     <li class="nav-item">
 
-                        <a class="nav-link"
+                        <a class="nav-link <?= activeMenu('home'); ?>"
                             href="index.php">
 
                             Home
@@ -71,7 +78,7 @@
                     <!-- INFORMASI -->
                     <li class="nav-item">
 
-                        <a class="nav-link"
+                        <a class="nav-link <?= activeMenu('informasi'); ?>"
                             href="index.php?url=informasi">
 
                             Informasi
@@ -83,8 +90,8 @@
                     <!-- PENGUMUMAN -->
                     <li class="nav-item">
 
-                        <a class="nav-link"
-                            href="#">
+                        <a class="nav-link <?= activeMenu('pengumuman'); ?>"
+                            href="index.php?url=pengumuman">
 
                             Pengumuman
 
@@ -95,7 +102,7 @@
                     <!-- TENTANG -->
                     <li class="nav-item">
 
-                        <a class="nav-link"
+                        <a class="nav-link <?= activeMenu('tentang'); ?>"
                             href="#">
 
                             Tentang
@@ -107,7 +114,7 @@
                     <!-- KONTAK -->
                     <li class="nav-item">
 
-                        <a class="nav-link"
+                        <a class="nav-link <?= activeMenu('kontak'); ?>"
                             href="#">
 
                             Kontak

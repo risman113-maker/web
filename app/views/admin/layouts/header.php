@@ -282,6 +282,14 @@
 
                 </a>
 
+                <a href="index.php?url=admin/pengumuman"
+                    class="menu-item <?= activeMenu('admin/pengumuman'); ?>">
+
+                    <i class="bi bi-megaphone"></i>
+                    Pengumuman
+
+                </a>
+
                 <a href="index.php?url=admin/users"
                     class="menu-item <?= activeMenu('admin/users'); ?>">
 

@@ -43,4 +43,28 @@ class HomeController extends Controller
 
         $this->view('frontend/informasi/detail', $data);
     }
+
+    public function pengumuman()
+    {
+        $model = $this->model('PengumumanModel');
+
+        $data['title'] = 'Pengumuman';
+        $data['pengumuman'] = $model->getAll();
+
+        $this->view('frontend/pengumuman/index', $data);
+    }
+
+    public function detailPengumuman($slug)
+    {
+        $model = $this->model('PengumumanModel');
+
+        $data['pengumuman'] = $model->findBySlug($slug);
+
+        if (!$data['pengumuman']) {
+
+            die('Pengumuman tidak ditemukan');
+        }
+
+        $this->view('frontend/pengumuman/detail', $data);
+    }
 }
