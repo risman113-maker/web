@@ -59,8 +59,7 @@ require_once 'app/views/frontend/layouts/header.php';
 
                         </div>
 
-                        <!-- ISI -->
-                        <div class="lh-lg">
+                        <div class="lh-lg justify-text">
 
                             <?= $informasi['isi']; ?>
 
