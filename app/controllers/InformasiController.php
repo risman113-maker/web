@@ -60,17 +60,60 @@ class InformasiController extends Controller
         }
 
         // GENERATE SLUG
-        $slug = strtolower(str_replace(' ', '-', $judul));
+        $slug = strtolower(
+            preg_replace('/[^A-Za-z0-9-]+/', '-', $judul)
+        );
 
         // UPLOAD GAMBAR
         $gambar = null;
 
         if (!empty($_FILES['gambar']['name'])) {
 
-            $namaFile = time() . '_' . $_FILES['gambar']['name'];
+            $tmp  = $_FILES['gambar']['tmp_name'];
+            $size = $_FILES['gambar']['size'];
 
-            $tmp = $_FILES['gambar']['tmp_name'];
+            // VALIDASI FILE IMAGE
+            $check = getimagesize($tmp);
 
+            if ($check === false) {
+
+                setFlash('danger', 'File harus berupa gambar');
+
+                redirect('admin/informasi/tambah');
+                exit;
+            }
+
+            // VALIDASI EXTENSION
+            $allowed = ['jpg', 'jpeg', 'png', 'webp'];
+
+            $ext = strtolower(
+                pathinfo(
+                    $_FILES['gambar']['name'],
+                    PATHINFO_EXTENSION
+                )
+            );
+
+            if (!in_array($ext, $allowed)) {
+
+                setFlash('danger', 'Format gambar tidak didukung');
+
+                redirect('admin/informasi/tambah');
+                exit;
+            }
+
+            // VALIDASI SIZE (2MB)
+            if ($size > 2 * 1024 * 1024) {
+
+                setFlash('danger', 'Ukuran gambar maksimal 2MB');
+
+                redirect('admin/informasi/tambah');
+                exit;
+            }
+
+            // NAMA FILE AMAN
+            $namaFile = uniqid('img_') . '.' . $ext;
+
+            // UPLOAD
             move_uploaded_file(
                 $tmp,
                 'public/uploads/' . $namaFile
@@ -78,7 +121,6 @@ class InformasiController extends Controller
 
             $gambar = $namaFile;
         }
-
         $model = $this->model('InformasiModel');
 
         // SIMPAN DATA
@@ -165,13 +207,23 @@ class InformasiController extends Controller
         // DEFAULT GAMBAR LAMA
         $gambar = $lama['gambar'];
 
-        // UPLOAD GAMBAR BARU
+        // ================= UPLOAD GAMBAR BARU =================
         if (!empty($_FILES['gambar']['name'])) {
 
             $namaFile = time() . '_' . $_FILES['gambar']['name'];
 
             $tmp = $_FILES['gambar']['tmp_name'];
 
+            // PATH GAMBAR LAMA
+            $oldPath = 'public/uploads/' . $lama['gambar'];
+
+            // HAPUS GAMBAR LAMA
+            if (!empty($lama['gambar']) && file_exists($oldPath)) {
+
+                unlink($oldPath);
+            }
+
+            // UPLOAD GAMBAR BARU
             move_uploaded_file(
                 $tmp,
                 'public/uploads/' . $namaFile

@@ -112,13 +112,12 @@ if (!isset($kategori)) {
                 Isi Informasi
             </label>
 
-            <textarea name="isi"
+            <textarea
+                name="isi"
+                id="editor"
                 rows="8"
-
                 class="form-control"
-
                 placeholder="Masukkan isi informasi"
-
                 required></textarea>
 
         </div>

@@ -7,20 +7,14 @@ require_once 'app/views/frontend/layouts/header.php';
 ?>
 
 <!-- HEADER -->
-<section class="py-5 bg-white border-bottom mt-5">
+<section class="informasi-header">
 
     <div class="container text-center">
 
-        <h1 class="fw-bold mb-3">
+        <h1>Informasi Sekolah</h1>
 
-            Informasi Sekolah
-
-        </h1>
-
-        <p class="text-muted mb-0">
-
+        <p>
             Kumpulan informasi dan berita terbaru sekolah
-
         </p>
 
     </div>

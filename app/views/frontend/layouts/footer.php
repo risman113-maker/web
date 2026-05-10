@@ -1,174 +1,78 @@
-    <!-- FOOTER -->
-    <footer>
+ <footer>
 
-        <div class="container">
+     <div class="container">
 
-            <div class="row g-4">
+         <div class="row gy-4">
 
-                <!-- PROFIL -->
-                <div class="col-md-4">
+             <!-- BRAND -->
+             <div class="col-md-6">
 
-                    <h5 class="fw-bold mb-3">
+                 <h4 class="fw-bold mb-3">
+                     Website Sekolah
+                 </h4>
 
-                        <i class="bi bi-mortarboard-fill"></i>
-                        Website Sekolah
+                 <p class="footer-text">
+                     Portal informasi sekolah modern untuk
+                     siswa, guru, dan masyarakat.
+                 </p>
 
-                    </h5>
+             </div>
 
-                    <p class="text-light-emphasis">
+             <!-- MENU -->
+             <div class="col-md-3">
 
-                        Website informasi sekolah modern berbasis PHP MVC
-                        untuk menyampaikan informasi, pengumuman,
-                        dan kegiatan sekolah.
+                 <h5 class="fw-semibold mb-3">
+                     Menu
+                 </h5>
 
-                    </p>
+                 <div class="d-flex flex-column gap-2">
 
-                </div>
+                     <a href="#">Home</a>
+                     <a href="#">Informasi</a>
+                     <a href="#">Pengumuman</a>
+                     <a href="#">Kontak</a>
 
-                <!-- MENU -->
-                <div class="col-md-4">
+                 </div>
 
-                    <h5 class="fw-bold mb-3">
+             </div>
 
-                        Menu
+             <!-- KONTAK -->
+             <div class="col-md-3">
 
-                    </h5>
+                 <h5 class="fw-semibold mb-3">
+                     Kontak
+                 </h5>
 
-                    <ul class="list-unstyled">
+                 <p class="footer-text mb-1">
+                     Cigombong
+                 </p>
 
-                        <li class="mb-2">
+                 <p class="footer-text mb-1">
+                     info@sekolah.sch.id
+                 </p>
 
-                            <a href="index.php">
+             </div>
 
-                                Home
+         </div>
 
-                            </a>
+         <!-- COPYRIGHT -->
+         <div class="text-center footer-copy">
 
-                        </li>
+             Created by <strong>RN</strong>
+             &copy; <?= date('Y'); ?>
 
-                        <li class="mb-2">
+         </div>
 
-                            <a href="index.php?url=informasi">
+     </div>
 
-                                Informasi
+ </footer>
 
-                            </a>
+ <!-- Bootstrap -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-                        </li>
+ <!-- CUSTOM JS -->
+ <script src="assets/js/script.js"></script>
 
-                        <li class="mb-2">
+ </body>
 
-                            <a href="#">
-
-                                Pengumuman
-
-                            </a>
-
-                        </li>
-
-                        <li class="mb-2">
-
-                            <a href="#">
-
-                                Tentang
-
-                            </a>
-
-                        </li>
-
-                        <li>
-
-                            <a href="#">
-
-                                Kontak
-
-                            </a>
-
-                        </li>
-
-                    </ul>
-
-                </div>
-
-                <!-- KONTAK -->
-                <div class="col-md-4">
-
-                    <h5 class="fw-bold mb-3">
-
-                        Kontak
-
-                    </h5>
-
-                    <p class="mb-2">
-
-                        <i class="bi bi-geo-alt"></i>
-                        SMAN 1 CIGOMBONG
-
-                    </p>
-
-                    <p class="mb-2">
-
-                        <i class="bi bi-envelope"></i>
-                        info@sekolah.sch.id
-
-                    </p>
-
-                    <p class="mb-2">
-
-                        <i class="bi bi-telephone"></i>
-                        0812-3456-7890
-
-                    </p>
-
-                    <!-- SOCIAL -->
-                    <div class="d-flex gap-3 mt-3">
-
-                        <a href="#">
-
-                            <i class="bi bi-facebook fs-5"></i>
-
-                        </a>
-
-                        <a href="#">
-
-                            <i class="bi bi-instagram fs-5"></i>
-
-                        </a>
-
-                        <a href="#">
-
-                            <i class="bi bi-youtube fs-5"></i>
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- COPYRIGHT -->
-            <hr class="border-secondary my-4">
-
-            <div class="text-center text-light-emphasis">
-
-                &copy; <?= date('Y'); ?>
-
-                Website Sekolah.
-                All rights reserved.
-
-            </div>
-
-        </div>
-
-    </footer>
-
-    <!-- Bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- CUSTOM JS -->
-    <script src="assets/js/script.js"></script>
-
-    </body>
-
-    </html>
+ </html>

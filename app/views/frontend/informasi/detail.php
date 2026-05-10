@@ -27,9 +27,8 @@ require_once 'app/views/frontend/layouts/header.php';
                     <?php if (!empty($informasi['gambar'])) : ?>
 
                         <img src="public/uploads/<?= htmlspecialchars($informasi['gambar']); ?>"
-                            class="card-img-top"
-                            alt="<?= htmlspecialchars($informasi['judul']); ?>"
-                            style="max-height: 500px; object-fit: cover;">
+                            class="detail-img"
+                            alt="<?= htmlspecialchars($informasi['judul']); ?>">
 
                     <?php endif; ?>
 
@@ -63,7 +62,7 @@ require_once 'app/views/frontend/layouts/header.php';
                         <!-- ISI -->
                         <div class="lh-lg">
 
-                            <?= nl2br(htmlspecialchars($informasi['isi'])); ?>
+                            <?= $informasi['isi']; ?>
 
                         </div>
 

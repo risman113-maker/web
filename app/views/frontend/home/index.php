@@ -153,10 +153,9 @@ require_once 'app/views/frontend/layouts/header.php';
                                 <!-- CONTENT -->
                                 <p class="text-muted flex-grow-1">
 
-                                    <?= substr(strip_tags($i['isi'] ?? ''), 0, 110); ?>...
+                                    <?= htmlspecialchars(mb_strimwidth(strip_tags($i['isi'] ?? ''), 0, 110, '...')); ?>
 
                                 </p>
-
                                 <!-- FOOTER -->
                                 <div class="d-flex justify-content-between align-items-center mt-3">
 

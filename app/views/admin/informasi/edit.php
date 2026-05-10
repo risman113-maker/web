@@ -137,12 +137,13 @@ if (empty($informasi)) {
                 Isi Informasi
             </label>
 
-            <textarea name="isi"
+            <textarea
+                name="isi"
+                id="editor"
                 rows="8"
-
                 class="form-control"
+                required><?= $informasi['isi']; ?></textarea>
 
-                required><?= htmlspecialchars($informasi['isi']); ?></textarea>
 
         </div>
 
