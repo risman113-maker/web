@@ -19,25 +19,27 @@ require_once 'app/views/frontend/layouts/header.php';
                 <!-- BADGE -->
                 <span class="hero-badge mb-3 d-inline-block">
 
-                    <i class="bi bi-stars"></i>
-                    Website Sekolah Modern
+                    <i class="bi bi-mortarboard-fill"></i>
+                    PPDB SMAN 1 Cigombong 2025
 
                 </span>
 
                 <!-- TITLE -->
                 <h1 class="hero-title mb-4">
 
-                    Selamat Datang di
-                    Website Sekolah
+                    Penerimaan Peserta Didik Baru
+                    SMAN 1 Cigombong
 
                 </h1>
 
                 <!-- TEXT -->
                 <p class="hero-text mb-4">
 
-                    Media informasi sekolah untuk menyampaikan
-                    berita, pengumuman, dan kegiatan sekolah
-                    secara cepat dan mudah diakses.
+                    Selamat datang di website resmi PPDB
+                    SMAN 1 Cigombong. Dapatkan informasi
+                    lengkap mengenai pendaftaran, jadwal,
+                    persyaratan, pengumuman, dan kegiatan
+                    sekolah secara cepat dan mudah.
 
                 </p>
 
@@ -47,8 +49,8 @@ require_once 'app/views/frontend/layouts/header.php';
                     <a href="index.php?url=informasi"
                         class="btn btn-light rounded-pill px-4 shadow-sm">
 
-                        <i class="bi bi-newspaper"></i>
-                        Informasi
+                        <i class="bi bi-journal-text"></i>
+                        Info PPDB
 
                     </a>
 
@@ -66,9 +68,9 @@ require_once 'app/views/frontend/layouts/header.php';
             <!-- IMAGE -->
             <div class="col-lg-6 text-center mt-5 mt-lg-0">
 
-                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png"
                     class="img-fluid hero-image"
-                    alt="Hero Image"
+                    alt="PPDB SMAN 1 Cigombong"
                     loading="lazy">
 
             </div>
@@ -90,13 +92,14 @@ require_once 'app/views/frontend/layouts/header.php';
 
             <h2 class="section-title">
 
-                Informasi Terbaru
+                Informasi PPDB Terbaru
 
             </h2>
 
             <p class="section-subtitle">
 
-                Informasi dan berita terbaru sekolah
+                Jadwal, pengumuman, dan informasi terbaru
+                PPDB SMAN 1 Cigombong
 
             </p>
 
@@ -134,7 +137,7 @@ require_once 'app/views/frontend/layouts/header.php';
                                 <!-- BADGE -->
                                 <span class="badge kategori-badge">
 
-                                    <?= htmlspecialchars($i['nama_kategori'] ?? 'Umum'); ?>
+                                    <?= htmlspecialchars($i['nama_kategori'] ?? 'PPDB'); ?>
 
                                 </span>
 
@@ -156,6 +159,7 @@ require_once 'app/views/frontend/layouts/header.php';
                                     <?= htmlspecialchars(mb_strimwidth(strip_tags($i['isi'] ?? ''), 0, 110, '...')); ?>
 
                                 </p>
+
                                 <!-- FOOTER -->
                                 <div class="d-flex justify-content-between align-items-center mt-3">
 
@@ -182,7 +186,7 @@ require_once 'app/views/frontend/layouts/header.php';
                                     <a href="index.php?url=informasi/<?= urlencode($i['slug'] ?? ''); ?>"
                                         class="btn btn-primary btn-sm px-3 rounded-pill">
 
-                                        Baca
+                                        Detail
 
                                     </a>
 
@@ -204,7 +208,7 @@ require_once 'app/views/frontend/layouts/header.php';
 
                         <i class="bi bi-info-circle"></i>
 
-                        Belum ada informasi tersedia.
+                        Belum ada informasi PPDB tersedia.
 
                     </div>
 
@@ -220,7 +224,7 @@ require_once 'app/views/frontend/layouts/header.php';
             <a href="index.php?url=informasi"
                 class="btn btn-outline-primary btn-lg rounded-pill px-4">
 
-                Lihat Semua Informasi
+                Lihat Semua Informasi PPDB
 
             </a>
 
@@ -240,9 +244,9 @@ require_once 'app/views/frontend/layouts/header.php';
             <!-- IMAGE -->
             <div class="col-lg-6 text-center">
 
-                <img src="https://cdn-icons-png.flaticon.com/512/4207/4207249.png"
+                <img src="https://cdn-icons-png.flaticon.com/512/3976/3976626.png"
                     class="img-fluid"
-                    alt="About Image"
+                    alt="Tentang PPDB"
                     loading="lazy">
 
             </div>
@@ -252,37 +256,38 @@ require_once 'app/views/frontend/layouts/header.php';
 
                 <span class="text-primary fw-semibold">
 
-                    Tentang Website
+                    Tentang PPDB
 
                 </span>
 
                 <h2 class="fw-bold mb-4 mt-2">
 
-                    Website Informasi Sekolah Modern
+                    SMAN 1 Cigombong
 
                 </h2>
 
                 <p class="text-muted">
 
-                    Website ini dibuat untuk memberikan
-                    informasi sekolah secara cepat,
-                    modern, dan mudah diakses oleh siswa,
-                    guru, dan masyarakat.
+                    PPDB SMAN 1 Cigombong hadir untuk memberikan
+                    layanan pendaftaran peserta didik baru secara
+                    modern, transparan, dan mudah diakses oleh
+                    calon siswa maupun orang tua.
 
                 </p>
 
                 <p class="text-muted">
 
-                    Dengan tampilan modern dan sistem berbasis PHP MVC,
-                    website ini membantu sekolah menyampaikan
-                    informasi secara lebih efektif.
+                    Melalui website ini, seluruh informasi
+                    mengenai jalur pendaftaran, jadwal seleksi,
+                    persyaratan, hingga pengumuman dapat diakses
+                    dengan cepat dan praktis.
 
                 </p>
 
-                <a href="#"
+                <a href="#informasi"
                     class="btn btn-primary rounded-pill px-4 mt-3">
 
-                    Selengkapnya
+                    Lihat Informasi
 
                 </a>
 

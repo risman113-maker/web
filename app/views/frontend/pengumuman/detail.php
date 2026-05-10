@@ -27,8 +27,7 @@ require_once 'app/views/frontend/layouts/header.php';
                     <?php if (!empty($pengumuman['gambar'])) : ?>
 
                         <img src="public/uploads/pengumuman/<?= htmlspecialchars($pengumuman['gambar']); ?>"
-                            class="img-fluid w-100"
-                            style="max-height: 500px; object-fit: cover;"
+                            class="img-fluid w-100 detail-pengumuman-img"
                             alt="<?= htmlspecialchars($pengumuman['judul']); ?>">
 
                     <?php endif; ?>

@@ -39,7 +39,7 @@
                 <i class="bi bi-mortarboard-fill"></i>
 
                 <span>
-                    Website Sekolah
+                    SMAN 1 CIGOMBONG
                 </span>
 
             </a>
@@ -94,18 +94,6 @@
                             href="index.php?url=pengumuman">
 
                             Pengumuman
-
-                        </a>
-
-                    </li>
-
-                    <!-- TENTANG -->
-                    <li class="nav-item">
-
-                        <a class="nav-link <?= activeMenu('tentang'); ?>"
-                            href="#">
-
-                            Tentang
 
                         </a>
 
