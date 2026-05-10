@@ -70,6 +70,10 @@
  <!-- Bootstrap -->
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+
+ <!-- CKEDITOR -->
+ <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+
  <!-- CUSTOM JS -->
  <script src="assets/js/script.js"></script>
 

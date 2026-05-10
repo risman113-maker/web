@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
        NAVBAR
     ========================================= */
 
-
     const navbar = document.getElementById('navbar');
 
     if (navbar) {
@@ -73,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
        Select2
     ========================================= */
 
-    if ($('.select2').length) {
+    if (typeof $ !== 'undefined' && $('.select2').length) {
 
         $('.select2').select2({
             placeholder: "-- Pilih Siswa --",
@@ -86,7 +85,9 @@ document.addEventListener("DOMContentLoaded", function () {
        DataTables
     ========================================= */
 
-    if ($('#datatable').length) {
+    if (typeof $ !== 'undefined' &&
+        typeof $.fn.DataTable !== 'undefined' &&
+        $('#datatable').length) {
 
         $('#datatable').DataTable({
             responsive: true,
