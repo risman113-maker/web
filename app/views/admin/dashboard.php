@@ -22,7 +22,7 @@ require_once 'app/views/admin/layouts/header.php';
 
             <p class="text-muted mb-0">
 
-                Selamat datang di sistem aplikasi SKL
+                Selamat datang di Website PPDB
 
             </p>
 

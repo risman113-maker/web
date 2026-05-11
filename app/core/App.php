@@ -89,8 +89,6 @@ class App
                 return ['informasi', 'hapus', $matches[1]];
             }
 
-
-
             // ==========================
             // ADMIN PENGUMUMAN
             // ==========================
@@ -163,6 +161,15 @@ class App
             }
 
 
+
+            // ==========================
+            // KONTAK FRONTEND
+            // ==========================
+            if ($url == 'kontak') {
+
+                return ['home', 'kontak'];
+            }
+            
             return explode('/', filter_var($url, FILTER_SANITIZE_URL));
         }
 

@@ -58,7 +58,7 @@
             <!-- HEADER -->
             <div class="login-header">
                 <i class="bi bi-file-earmark-text"></i>
-                <h4 class="mt-2 mb-0">Surat Keterangan Lulus</h4>
+                <h4 class="mt-2 mb-0">ADMIN</h4>
                 <small>Silakan login untuk melanjutkan</small>
             </div>
 
@@ -75,7 +75,7 @@
                             <span class="input-group-text">
                                 <i class="bi bi-person"></i>
                             </span>
-                            <input name="username" class="form-control" placeholder="Masukkan NIS" required>
+                            <input name="username" class="form-control" required>
                         </div>
                     </div>
 
@@ -85,7 +85,7 @@
                             <span class="input-group-text">
                                 <i class="bi bi-lock"></i>
                             </span>
-                            <input name="password" type="password" class="form-control" placeholder="Masukkan NIS" required>
+                            <input name="password" type="password" class="form-control"  required>
                         </div>
                     </div>
 

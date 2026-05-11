@@ -4,19 +4,25 @@
 
          <div class="row gy-4">
 
-             <!-- BRAND -->
-             <div class="col-md-6">
+       <!-- BRAND -->
+        <!-- BRAND -->
+        <div class="col-md-6 text-center">
 
-                 <h4 class="fw-bold mb-3">
-                     Website Sekolah
-                 </h4>
+            <!-- LOGO -->
+            <img src="assets/img/logo.png"
+                alt="Logo SMAN 1 Cigombong"
+                class="footer-logo mb-3 d-block mx-auto">
 
-                 <p class="footer-text">
-                     Portal informasi sekolah modern untuk
-                     siswa, guru, dan masyarakat.
-                 </p>
+            <h4 class="fw-bold mb-3">
+                Website Sekolah
+            </h4>
 
-             </div>
+            <p class="footer-text">
+                Portal informasi sekolah modern untuk
+                siswa, guru, dan masyarakat.
+            </p>
+
+        </div>
 
              <!-- MENU -->
              <div class="col-md-3">

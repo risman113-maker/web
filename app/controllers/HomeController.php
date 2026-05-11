@@ -27,6 +27,7 @@ class HomeController extends Controller
         $this->view('frontend/informasi/index', $data);
     }
 
+
     // ==========================
     // DETAIL INFORMASI
     // ==========================
@@ -44,6 +45,10 @@ class HomeController extends Controller
         $this->view('frontend/informasi/detail', $data);
     }
 
+
+    // ==========================
+    // PENGUMUMAN
+    // ==========================
     public function pengumuman()
     {
         $model = $this->model('PengumumanModel');
@@ -54,6 +59,10 @@ class HomeController extends Controller
         $this->view('frontend/pengumuman/index', $data);
     }
 
+
+    // ==========================
+    // DETAIL PENGUMUMAN
+    // ==========================
     public function detailPengumuman($slug)
     {
         $model = $this->model('PengumumanModel');
@@ -66,5 +75,14 @@ class HomeController extends Controller
         }
 
         $this->view('frontend/pengumuman/detail', $data);
+    }
+
+
+    // ==========================
+    // HALAMAN KONTAK
+    // ==========================
+    public function kontak()
+    {
+        $this->view('frontend/kontak/index');
     }
 }

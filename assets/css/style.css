@@ -719,7 +719,10 @@ footer::before {
     );
 }
 
-/* VECTOR */
+/* =========================================================
+   FOOTER VECTOR
+========================================================= */
+
 footer::after {
     content: "";
 
@@ -740,7 +743,11 @@ footer::after {
     right: -120px;
 }
 
-/* LINK */
+
+/* =========================================================
+   FOOTER LINK
+========================================================= */
+
 footer a {
     color: #cbd5e1;
 
@@ -753,7 +760,11 @@ footer a:hover {
     color: #ffffff;
 }
 
-/* TEXT */
+
+/* =========================================================
+   FOOTER TEXT
+========================================================= */
+
 .footer-text {
     opacity: 0.9;
 
@@ -762,7 +773,11 @@ footer a:hover {
     line-height: 1.8;
 }
 
-/* COPYRIGHT */
+
+/* =========================================================
+   FOOTER COPYRIGHT
+========================================================= */
+
 .footer-copy {
     border-top: 1px solid rgba(255, 255, 255, 0.08);
 
@@ -774,6 +789,24 @@ footer a:hover {
 
     color: #cbd5e1;
 }
+
+
+/* =========================================================
+   FOOTER LOGO
+========================================================= */
+
+.footer-logo {
+    width: 220px;
+
+    max-width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    margin: 0 auto;
+}
+
 
 /* =========================================================
    MOBILE
@@ -824,7 +857,7 @@ footer a:hover {
         max-height: 260px;
     }
 
-    /* MOBILE DETAIL PENGUMUMAN IMAGE */
+    /* DETAIL PENGUMUMAN IMAGE */
     .detail-pengumuman-img {
         max-height: 220px;
     }
@@ -875,6 +908,11 @@ footer a:hover {
         font-size: 13px;
 
         padding: 8px 18px;
+    }
+
+    /* FOOTER LOGO MOBILE */
+    .footer-logo {
+        width: 170px;
     }
 
 }

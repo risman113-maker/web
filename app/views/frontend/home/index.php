@@ -68,7 +68,7 @@ require_once 'app/views/frontend/layouts/header.php';
             <!-- IMAGE -->
             <div class="col-lg-6 text-center mt-5 mt-lg-0">
 
-                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png"
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
                     class="img-fluid hero-image"
                     alt="PPDB SMAN 1 Cigombong"
                     loading="lazy">
@@ -244,7 +244,7 @@ require_once 'app/views/frontend/layouts/header.php';
             <!-- IMAGE -->
             <div class="col-lg-6 text-center">
 
-                <img src="https://cdn-icons-png.flaticon.com/512/3976/3976626.png"
+                <img src="https://cdn-icons-png.flaticon.com/512/4207/4207247.png"
                     class="img-fluid"
                     alt="Tentang PPDB"
                     loading="lazy">

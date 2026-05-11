@@ -32,17 +32,19 @@
 
         <div class="container">
 
-            <!-- LOGO -->
-            <a class="navbar-brand d-flex align-items-center gap-2"
-                href="index.php">
+           <!-- LOGO -->
+        <a class="navbar-brand d-flex align-items-center gap-2"
+            href="index.php">
 
-                <i class="bi bi-mortarboard-fill"></i>
+            <img src="assets/img/logo.png"
+                alt="Logo SMAN 1 Cigombong"
+                width="45">
 
-                <span>
-                    SMAN 1 CIGOMBONG
-                </span>
+            <span>
+                SMAN 1 CIGOMBONG
+            </span>
 
-            </a>
+        </a>
 
             <!-- TOGGLE -->
             <button class="navbar-toggler border-0 shadow-none"
@@ -99,16 +101,17 @@
 
                     </li>
 
-                    <!-- KONTAK -->
-                    <li class="nav-item">
+                        <!-- KONTAK -->
+                        <li class="nav-item">
 
-                        <a class="nav-link <?= activeMenu('kontak'); ?>"
-                            href="#">
+                            <a class="nav-link <?= activeMenu('kontak'); ?>"
+                                href="kontak">
 
-                            Kontak
+                                Kontak
 
-                        </a>
+                            </a>
 
+                        </li>
                     </li>
 
                 </ul>
