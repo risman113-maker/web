@@ -14,7 +14,7 @@ require_once 'app/views/frontend/layouts/header.php';
         <h1>Hubungi Kami</h1>
 
         <p>
-            Informasi dan layanan PPDB SMAN 1 Cigombong
+            Informasi dan layanan SPMB SMAN 1 Cigombong
         </p>
 
     </div>

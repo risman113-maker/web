@@ -20,14 +20,14 @@ require_once 'app/views/frontend/layouts/header.php';
                 <span class="hero-badge mb-3 d-inline-block">
 
                     <i class="bi bi-mortarboard-fill"></i>
-                    PPDB SMAN 1 Cigombong 2025
+                    SPMB SMAN 1 Cigombong 2025
 
                 </span>
 
                 <!-- TITLE -->
                 <h1 class="hero-title mb-4">
 
-                    Penerimaan Peserta Didik Baru
+                    Sistem Penerimaan Murid Baru
                     SMAN 1 Cigombong
 
                 </h1>
@@ -35,11 +35,12 @@ require_once 'app/views/frontend/layouts/header.php';
                 <!-- TEXT -->
                 <p class="hero-text mb-4">
 
-                    Selamat datang di website resmi PPDB
+                    Selamat datang di website resmi SPMB
                     SMAN 1 Cigombong. Dapatkan informasi
                     lengkap mengenai pendaftaran, jadwal,
                     persyaratan, pengumuman, dan kegiatan
-                    sekolah secara cepat dan mudah.
+                    sekolah secara cepat, transparan,
+                    dan mudah diakses.
 
                 </p>
 
@@ -50,7 +51,7 @@ require_once 'app/views/frontend/layouts/header.php';
                         class="btn btn-light rounded-pill px-4 shadow-sm">
 
                         <i class="bi bi-journal-text"></i>
-                        Info PPDB
+                        Info SPMB
 
                     </a>
 
@@ -70,7 +71,7 @@ require_once 'app/views/frontend/layouts/header.php';
 
                 <img src="https://cdn-icons-png.flaticon.com/512/3135/3135755.png"
                     class="img-fluid hero-image"
-                    alt="PPDB SMAN 1 Cigombong"
+                    alt="SPMB SMAN 1 Cigombong"
                     loading="lazy">
 
             </div>
@@ -92,14 +93,14 @@ require_once 'app/views/frontend/layouts/header.php';
 
             <h2 class="section-title">
 
-                Informasi PPDB Terbaru
+                Informasi SPMB Terbaru
 
             </h2>
 
             <p class="section-subtitle">
 
                 Jadwal, pengumuman, dan informasi terbaru
-                PPDB SMAN 1 Cigombong
+                SPMB SMAN 1 Cigombong
 
             </p>
 
@@ -137,7 +138,7 @@ require_once 'app/views/frontend/layouts/header.php';
                                 <!-- BADGE -->
                                 <span class="badge kategori-badge">
 
-                                    <?= htmlspecialchars($i['nama_kategori'] ?? 'PPDB'); ?>
+                                    <?= htmlspecialchars($i['nama_kategori'] ?? 'SPMB'); ?>
 
                                 </span>
 
@@ -208,7 +209,7 @@ require_once 'app/views/frontend/layouts/header.php';
 
                         <i class="bi bi-info-circle"></i>
 
-                        Belum ada informasi PPDB tersedia.
+                        Belum ada informasi SPMB tersedia.
 
                     </div>
 
@@ -224,7 +225,7 @@ require_once 'app/views/frontend/layouts/header.php';
             <a href="index.php?url=informasi"
                 class="btn btn-outline-primary btn-lg rounded-pill px-4">
 
-                Lihat Semua Informasi PPDB
+                Lihat Semua Informasi SPMB
 
             </a>
 
@@ -246,7 +247,7 @@ require_once 'app/views/frontend/layouts/header.php';
 
                 <img src="https://cdn-icons-png.flaticon.com/512/4207/4207247.png"
                     class="img-fluid"
-                    alt="Tentang PPDB"
+                    alt="Tentang SPMB"
                     loading="lazy">
 
             </div>
@@ -256,7 +257,7 @@ require_once 'app/views/frontend/layouts/header.php';
 
                 <span class="text-primary fw-semibold">
 
-                    Tentang PPDB
+                    Tentang SPMB
 
                 </span>
 
@@ -268,10 +269,10 @@ require_once 'app/views/frontend/layouts/header.php';
 
                 <p class="text-muted">
 
-                    PPDB SMAN 1 Cigombong hadir untuk memberikan
-                    layanan pendaftaran peserta didik baru secara
-                    modern, transparan, dan mudah diakses oleh
-                    calon siswa maupun orang tua.
+                    SPMB SMAN 1 Cigombong hadir untuk memberikan
+                    layanan penerimaan murid baru secara
+                    modern, transparan, dan mudah diakses
+                    oleh calon murid maupun orang tua.
 
                 </p>
 

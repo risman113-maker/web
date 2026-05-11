@@ -97,6 +97,6 @@ function activeMenu($url)
 function pageTitle($title = '')
 {
     return !empty($title)
-        ? $title . ' - Aplikasi WEB'
-        : 'Aplikasi WEB';
+        ? $title . ' - Web SPMB'
+        : 'Web SPMB';
 }
